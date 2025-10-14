@@ -1,0 +1,1356 @@
+Command: /home/luckydipper/.espressif/python_env/idf6.0_py3.10_env/bin/python /home/luckydipper/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/luckydipper/Desktop/DEV/esp32_i2c_test/build/i2c_mpu6050_test.elf /home/luckydipper/Desktop/DEV/esp32_i2c_test/build/bootloader/bootloader.elf -m '/home/luckydipper/.espressif/python_env/idf6.0_py3.10_env/bin/python' '/home/luckydipper/esp/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.0-dev-2810-g800f141f94 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Oct 14 2025 01:45:49[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b39ch ( 45980) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=0001b3c4 vaddr=3ffb0000 size=02658h (  9816) load[0m
+[0;32mI (110) esp_image: segment 2: paddr=0001da24 vaddr=40080000 size=025f4h (  9716) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1429ch ( 82588) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=000342c4 vaddr=400825f4 size=09aa8h ( 39592) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003dd74 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (195) app_init: Project name:     i2c_mpu6050_test[0m
+[0;32mI (200) app_init: App version:      1[0m
+[0;32mI (204) app_init: Compile time:     Oct 14 2025 01:45:47[0m
+[0;32mI (209) app_init: ELF file SHA256:  07c66c16f...[0m
+[0;32mI (213) app_init: ESP-IDF:          v6.0-dev-2810-g800f141f94[0m
+[0;32mI (218) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (222) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (226) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (230) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (236) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (241) heap_init: At 3FFB2F38 len 0002D0C8 (180 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (252) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008C09C len 00013F64 (79 KiB): IRAM[0m
+[0;32mI (265) spi_flash: detected chip: generic[0m
+[0;32mI (267) spi_flash: flash io: dio[0m
+[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (282) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (292) main_task: Started on CPU0[0m
+[0;32mI (302) main_task: Calling app_main()[0m
+
+
+================================================
+   ESP32 I2C MPU6050 Hardware Test
+================================================
+
+[0;32mI (302) I2C_TEST: Step 1: Initialize I2C bus[0m
+[0;32mI (312) I2C_TEST: Initializing I2C Master[0m
+[0;32mI (312) I2C_TEST: SDA: GPIO18, SCL: GPIO19[0m
+[0;32mI (322) I2C_TEST: I2C initialized successfully[0m
+[0;32mI (822) I2C_TEST: Step 2: Scan I2C bus for devices[0m
+[0;32mI (822) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (852) I2C_TEST: No I2C devices found![0m
+[0;33mW (862) I2C_TEST: Check your wiring:[0m
+[0;33mW (862) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (862) I2C_TEST:   GND -> GND[0m
+[0;33mW (872) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (872) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (1872) I2C_TEST: Step 3: Initialize MPU6050 sensor[0m
+[0;32mI (1872) I2C_TEST: Initializing MPU6050 at address 0x68[0m
+[1;31mE (1872) I2C_TEST: Failed to read WHO_AM_I: ESP_FAIL[0m
+[1;31mE (1872) I2C_TEST: ✗ MPU6050 initialization failed![0m
+[0;33mW (1872) I2C_TEST: [0m
+Troubleshooting:
+[0;33mW (1882) I2C_TEST: 1. Check if device was found in I2C scan above[0m
+[0;33mW (1882) I2C_TEST: 2. If found at different address, change MPU6050_ADDR in code[0m
+[0;33mW (1892) I2C_TEST: 3. If not found, check physical wiring[0m
+[0;33mW (1892) I2C_TEST: 4. Try different GPIO pins (edit I2C_SDA_IO and I2C_SCL_IO)[0m
+[0;33mW (1902) I2C_TEST: 5. Measure VCC with multimeter (should be 3.3V)[0m
+[0;32mI (4912) I2C_TEST: Scanning again...[0m
+[0;32mI (4912) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (4942) I2C_TEST: No I2C devices found![0m
+[0;33mW (4952) I2C_TEST: Check your wiring:[0m
+[0;33mW (4952) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (4952) I2C_TEST:   GND -> GND[0m
+[0;33mW (4952) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (4962) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (7962) I2C_TEST: Scanning again...[0m
+[0;32mI (7962) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (7992) I2C_TEST: No I2C devices found![0m
+[0;33mW (8002) I2C_TEST: Check your wiring:[0m
+[0;33mW (8002) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (8002) I2C_TEST:   GND -> GND[0m
+[0;33mW (8002) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (8012) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (11012) I2C_TEST: Scanning again...[0m
+[0;32mI (11012) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (11042) I2C_TEST: No I2C devices found![0m
+[0;33mW (11052) I2C_TEST: Check your wiring:[0m
+[0;33mW (11052) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (11052) I2C_TEST:   GND -> GND[0m
+[0;33mW (11062) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (11062) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (14062) I2C_TEST: Scanning again...[0m
+[0;32mI (14062) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (14092) I2C_TEST: No I2C devices found![0m
+[0;33mW (14102) I2C_TEST: Check your wiring:[0m
+[0;33mW (14102) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (14102) I2C_TEST:   GND -> GND[0m
+[0;33mW (14112) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (14112) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (17112) I2C_TEST: Scanning again...[0m
+[0;32mI (17112) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (17142) I2C_TEST: No I2C devices found![0m
+[0;33mW (17152) I2C_TEST: Check your wiring:[0m
+[0;33mW (17152) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (17152) I2C_TEST:   GND -> GND[0m
+[0;33mW (17162) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (17162) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (20162) I2C_TEST: Scanning again...[0m
+[0;32mI (20162) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (20192) I2C_TEST: No I2C devices found![0m
+[0;33mW (20202) I2C_TEST: Check your wiring:[0m
+[0;33mW (20202) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (20202) I2C_TEST:   GND -> GND[0m
+[0;33mW (20212) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (20212) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (23212) I2C_TEST: Scanning again...[0m
+[0;32mI (23212) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (23242) I2C_TEST: No I2C devices found![0m
+[0;33mW (23252) I2C_TEST: Check your wiring:[0m
+[0;33mW (23252) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (23252) I2C_TEST:   GND -> GND[0m
+[0;33mW (23262) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (23262) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (26262) I2C_TEST: Scanning again...[0m
+[0;32mI (26262) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (26292) I2C_TEST: No I2C devices found![0m
+[0;33mW (26302) I2C_TEST: Check your wiring:[0m
+[0;33mW (26302) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (26302) I2C_TEST:   GND -> GND[0m
+[0;33mW (26312) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (26312) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (29312) I2C_TEST: Scanning again...[0m
+[0;32mI (29312) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (29342) I2C_TEST: No I2C devices found![0m
+[0;33mW (29352) I2C_TEST: Check your wiring:[0m
+[0;33mW (29352) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (29352) I2C_TEST:   GND -> GND[0m
+[0;33mW (29362) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (29362) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (32362) I2C_TEST: Scanning again...[0m
+[0;32mI (32362) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (32392) I2C_TEST: No I2C devices found![0m
+[0;33mW (32402) I2C_TEST: Check your wiring:[0m
+[0;33mW (32402) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (32402) I2C_TEST:   GND -> GND[0m
+[0;33mW (32412) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (32412) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (35412) I2C_TEST: Scanning again...[0m
+[0;32mI (35412) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (35442) I2C_TEST: No I2C devices found![0m
+[0;33mW (35452) I2C_TEST: Check your wiring:[0m
+[0;33mW (35452) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (35452) I2C_TEST:   GND -> GND[0m
+[0;33mW (35462) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (35462) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (38462) I2C_TEST: Scanning again...[0m
+[0;32mI (38462) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (38492) I2C_TEST: No I2C devices found![0m
+[0;33mW (38502) I2C_TEST: Check your wiring:[0m
+[0;33mW (38502) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (38502) I2C_TEST:   GND -> GND[0m
+[0;33mW (38512) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (38512) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (41512) I2C_TEST: Scanning again...[0m
+[0;32mI (41512) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (41542) I2C_TEST: No I2C devices found![0m
+[0;33mW (41552) I2C_TEST: Check your wiring:[0m
+[0;33mW (41552) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (41552) I2C_TEST:   GND -> GND[0m
+[0;33mW (41562) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (41562) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (44562) I2C_TEST: Scanning again...[0m
+[0;32mI (44562) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (44592) I2C_TEST: No I2C devices found![0m
+[0;33mW (44602) I2C_TEST: Check your wiring:[0m
+[0;33mW (44602) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (44602) I2C_TEST:   GND -> GND[0m
+[0;33mW (44612) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (44612) I2C_TEST:   SCL -> GPIO19[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.0-dev-2810-g800f141f94 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Oct 14 2025 01:45:49[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b39ch ( 45980) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=0001b3c4 vaddr=3ffb0000 size=02658h (  9816) load[0m
+[0;32mI (110) esp_image: segment 2: paddr=0001da24 vaddr=40080000 size=025f4h (  9716) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1429ch ( 82588) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=000342c4 vaddr=400825f4 size=09aa8h ( 39592) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003dd74 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (195) app_init: Project name:     i2c_mpu6050_test[0m
+[0;32mI (200) app_init: App version:      1[0m
+[0;32mI (204) app_init: Compile time:     Oct 14 2025 01:45:47[0m
+[0;32mI (209) app_init: ELF file SHA256:  07c66c16f...[0m
+[0;32mI (213) app_init: ESP-IDF:          v6.0-dev-2810-g800f141f94[0m
+[0;32mI (218) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (222) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (226) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (230) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (236) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (241) heap_init: At 3FFB2F38 len 0002D0C8 (180 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (252) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008C09C len 00013F64 (79 KiB): IRAM[0m
+[0;32mI (265) spi_flash: detected chip: generic[0m
+[0;32mI (267) spi_flash: flash io: dio[0m
+[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (282) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (292) main_task: Started on CPU0[0m
+[0;32mI (302) main_task: Calling app_main()[0m
+
+
+================================================
+   ESP32 I2C MPU6050 Hardware Test
+================================================
+
+[0;32mI (302) I2C_TEST: Step 1: Initialize I2C bus[0m
+[0;32mI (312) I2C_TEST: Initializing I2C Master[0m
+[0;32mI (312) I2C_TEST: SDA: GPIO18, SCL: GPIO19[0m
+[0;32mI (322) I2C_TEST: I2C initialized successfully[0m
+[0;32mI (822) I2C_TEST: Step 2: Scan I2C bus for devices[0m
+[0;32mI (822) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (852) I2C_TEST: No I2C devices found![0m
+[0;33mW (862) I2C_TEST: Check your wiring:[0m
+[0;33mW (862) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (862) I2C_TEST:   GND -> GND[0m
+[0;33mW (872) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (872) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (1872) I2C_TEST: Step 3: Initialize MPU6050 sensor[0m
+[0;32mI (1872) I2C_TEST: Initializing MPU6050 at address 0x68[0m
+[1;31mE (1872) I2C_TEST: Failed to read WHO_AM_I: ESP_FAIL[0m
+[1;31mE (1872) I2C_TEST: ✗ MPU6050 initialization failed![0m
+[0;33mW (1872) I2C_TEST: [0m
+Troubleshooting:
+[0;33mW (1882) I2C_TEST: 1. Check if device was found in I2C scan above[0m
+[0;33mW (1882) I2C_TEST: 2. If found at different address, change MPU6050_ADDR in code[0m
+[0;33mW (1892) I2C_TEST: 3. If not found, check physical wiring[0m
+[0;33mW (1892) I2C_TEST: 4. Try different GPIO pins (edit I2C_SDA_IO and I2C_SCL_IO)[0m
+[0;33mW (1902) I2C_TEST: 5. Measure VCC with multimeter (should be 3.3V)[0m
+[0;32mI (4912) I2C_TEST: Scanning again...[0m
+[0;32mI (4912) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (4942) I2C_TEST: No I2C devices found![0m
+[0;33mW (4952) I2C_TEST: Check your wiring:[0m
+[0;33mW (4952) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (4952) I2C_TEST:   GND -> GND[0m
+[0;33mW (4952) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (4962) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (7962) I2C_TEST: Scanning again...[0m
+[0;32mI (7962) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (7992) I2C_TEST: No I2C devices found![0m
+[0;33mW (8002) I2C_TEST: Check your wiring:[0m
+[0;33mW (8002) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (8002) I2C_TEST:   GND -> GND[0m
+[0;33mW (8002) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (8012) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (11012) I2C_TEST: Scanning again...[0m
+[0;32mI (11012) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (11042) I2C_TEST: No I2C devices found![0m
+[0;33mW (11052) I2C_TEST: Check your wiring:[0m
+[0;33mW (11052) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (11052) I2C_TEST:   GND -> GND[0m
+[0;33mW (11062) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (11062) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (14062) I2C_TEST: Scanning again...[0m
+[0;32mI (14062) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (14282) I2C_TEST: No I2C devices found![0m
+[0;33mW (14282) I2C_TEST: Check your wiring:[0m
+[0;33mW (14292) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (14292) I2C_TEST:   GND -> GND[0m
+[0;33mW (14292) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (14302) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (17302) I2C_TEST: Scanning again...[0m
+[0;32mI (17302) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (17332) I2C_TEST: No I2C devices found![0m
+[0;33mW (17342) I2C_TEST: Check your wiring:[0m
+[0;33mW (17342) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (17342) I2C_TEST:   GND -> GND[0m
+[0;33mW (17352) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (17352) I2C_TEST:   SCL -> GPIO19[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.0-dev-2810-g800f141f94 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Oct 14 2025 01:45:49[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b39ch ( 45980) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=0001b3c4 vaddr=3ffb0000 size=02658h (  9816) load[0m
+[0;32mI (110) esp_image: segment 2: paddr=0001da24 vaddr=40080000 size=025f4h (  9716) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1429ch ( 82588) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=000342c4 vaddr=400825f4 size=09aa8h ( 39592) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003dd74 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (195) app_init: Project name:     i2c_mpu6050_test[0m
+[0;32mI (200) app_init: App version:      1[0m
+[0;32mI (204) app_init: Compile time:     Oct 14 2025 01:45:47[0m
+[0;32mI (209) app_init: ELF file SHA256:  07c66c16f...[0m
+[0;32mI (213) app_init: ESP-IDF:          v6.0-dev-2810-g800f141f94[0m
+[0;32mI (218) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (222) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (226) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (230) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (236) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (241) heap_init: At 3FFB2F38 len 0002D0C8 (180 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (252) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008C09C len 00013F64 (79 KiB): IRAM[0m
+[0;32mI (265) spi_flash: detected chip: generic[0m
+[0;32mI (267) spi_flash: flash io: dio[0m
+[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (282) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (292) main_task: Started on CPU0[0m
+[0;32mI (302) main_task: Calling app_main()[0m
+
+
+================================================
+   ESP32 I2C MPU6050 Hardware Test
+================================================
+
+[0;32mI (302) I2C_TEST: Step 1: Initialize I2C bus[0m
+[0;32mI (312) I2C_TEST: Initializing I2C Master[0m
+[0;32mI (312) I2C_TEST: SDA: GPIO18, SCL: GPIO19[0m
+[0;32mI (322) I2C_TEST: I2C initialized successfully[0m
+[0;32mI (822) I2C_TEST: Step 2: Scan I2C bus for devices[0m
+[0;32mI (822) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (852) I2C_TEST: No I2C devices found![0m
+[0;33mW (862) I2C_TEST: Check your wiring:[0m
+[0;33mW (862) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (862) I2C_TEST:   GND -> GND[0m
+[0;33mW (872) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (872) I2C_TEST:   SCL -> GPIO19[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.0-dev-2810-g800f141f94 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Oct 14 2025 01:45:49[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b39ch ( 45980) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=0001b3c4 vaddr=3ffb0000 size=02658h (  9816) load[0m
+[0;32mI (110) esp_image: segment 2: paddr=0001da24 vaddr=40080000 size=025f4h (  9716) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1429ch ( 82588) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=000342c4 vaddr=400825f4 size=09aa8h ( 39592) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003dd74 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (195) app_init: Project name:     i2c_mpu6050_test[0m
+[0;32mI (200) app_init: App version:      1[0m
+[0;32mI (204) app_init: Compile time:     Oct 14 2025 01:45:47[0m
+[0;32mI (209) app_init: ELF file SHA256:  07c66c16f...[0m
+[0;32mI (213) app_init: ESP-IDF:          v6.0-dev-2810-g800f141f94[0m
+[0;32mI (218) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (222) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (226) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (230) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (236) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (241) heap_init: At 3FFB2F38 len 0002D0C8 (180 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (252) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008C09C len 00013F64 (79 KiB): IRAM[0m
+[0;32mI (265) spi_flash: detected chip: generic[0m
+[0;32mI (267) spi_flash: flash io: dio[0m
+[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (282) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (292) main_task: Started on CPU0[0m
+[0;32mI (302) main_task: Calling app_main()[0m
+
+
+================================================
+   ESP32 I2C MPU6050 Hardware Test
+================================================
+
+[0;32mI (302) I2C_TEST: Step 1: Initialize I2C bus[0m
+[0;32mI (312) I2C_TEST: Initializing I2C Master[0m
+[0;32mI (312) I2C_TEST: SDA: GPIO18, SCL: GPIO19[0m
+[0;32mI (322) I2C_TEST: I2C initialized successfully[0m
+[0;32mI (822) I2C_TEST: Step 2: Scan I2C bus for devices[0m
+[0;32mI (822) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (852) I2C_TEST: No I2C devices found![0m
+[0;33mW (862) I2C_TEST: Check your wiring:[0m
+[0;33mW (862) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (862) I2C_TEST:   GND -> GND[0m
+[0;33mW (872) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (872) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (1872) I2C_TEST: Step 3: Initialize MPU6050 sensor[0m
+[0;32mI (1872) I2C_TEST: Initializing MPU6050 at address 0x68[0m
+[1;31mE (1872) I2C_TEST: Failed to read WHO_AM_I: ESP_FAIL[0m
+[1;31mE (1872) I2C_TEST: ✗ MPU6050 initialization failed![0m
+[0;33mW (1872) I2C_TEST: [0m
+Troubleshooting:
+[0;33mW (1882) I2C_TEST: 1. Check if device was found in I2C scan above[0m
+[0;33mW (1882) I2C_TEST: 2. If found at different address, change MPU6050_ADDR in code[0m
+[0;33mW (1892) I2C_TEST: 3. If not found, check physical wiring[0m
+[0;33mW (1892) I2C_TEST: 4. Try different GPIO pins (edit I2C_SDA_IO and I2C_SCL_IO)[0m
+[0;33mW (1902) I2C_TEST: 5. Measure VCC with multimeter (should be 3.3V)[0m
+[0;32mI (4912) I2C_TEST: Scanning again...[0m
+[0;32mI (4912) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (4942) I2C_TEST: No I2C devices found![0m
+[0;33mW (4952) I2C_TEST: Check your wiring:[0m
+[0;33mW (4952) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (4952) I2C_TEST:   GND -> GND[0m
+[0;33mW (4952) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (4962) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (7962) I2C_TEST: Scanning again...[0m
+[0;32mI (7962) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (7992) I2C_TEST: No I2C devices found![0m
+[0;33mW (8002) I2C_TEST: Check your wiring:[0m
+[0;33mW (8002) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (8002) I2C_TEST:   GND -> GND[0m
+[0;33mW (8002) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (8012) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (11012) I2C_TEST: Scanning again...[0m
+[0;32mI (11012) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (11042) I2C_TEST: No I2C devices found![0m
+[0;33mW (11052) I2C_TEST: Check your wiring:[0m
+[0;33mW (11052) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (11052) I2C_TEST:   GND -> GND[0m
+[0;33mW (11062) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (11062) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (14062) I2C_TEST: Scanning again...[0m
+[0;32mI (14062) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (14092) I2C_TEST: No I2C devices found![0m
+[0;33mW (14102) I2C_TEST: Check your wiring:[0m
+[0;33mW (14102) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (14102) I2C_TEST:   GND -> GND[0m
+[0;33mW (14112) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (14112) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (17112) I2C_TEST: Scanning again...[0m
+[0;32mI (17112) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (17142) I2C_TEST: No I2C devices found![0m
+[0;33mW (17152) I2C_TEST: Check your wiring:[0m
+[0;33mW (17152) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (17152) I2C_TEST:   GND -> GND[0m
+[0;33mW (17162) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (17162) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (20162) I2C_TEST: Scanning again...[0m
+[0;32mI (20162) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (20192) I2C_TEST: No I2C devices found![0m
+[0;33mW (20202) I2C_TEST: Check your wiring:[0m
+[0;33mW (20202) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (20202) I2C_TEST:   GND -> GND[0m
+[0;33mW (20212) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (20212) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (23212) I2C_TEST: Scanning again...[0m
+[0;32mI (23212) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (23242) I2C_TEST: No I2C devices found![0m
+[0;33mW (23252) I2C_TEST: Check your wiring:[0m
+[0;33mW (23252) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (23252) I2C_TEST:   GND -> GND[0m
+[0;33mW (23262) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (23262) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (26262) I2C_TEST: Scanning again...[0m
+[0;32mI (26262) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (26292) I2C_TEST: No I2C devices found![0m
+[0;33mW (26302) I2C_TEST: Check your wiring:[0m
+[0;33mW (26302) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (26302) I2C_TEST:   GND -> GND[0m
+[0;33mW (26312) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (26312) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (29312) I2C_TEST: Scanning again...[0m
+[0;32mI (29312) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[0;32mI (29342) I2C_TEST: Found 1 device(s)[0m
+[0;32mI (32352) I2C_TEST: Scanning again...[0m
+[0;32mI (32352) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[0;32mI (32382) I2C_TEST: Found 1 device(s)[0m
+[0;32mI (35392) I2C_TEST: Scanning again...[0m
+[0;32mI (35392) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (35422) I2C_TEST: No I2C devices found![0m
+[0;33mW (35432) I2C_TEST: Check your wiring:[0m
+[0;33mW (35432) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (35432) I2C_TEST:   GND -> GND[0m
+[0;33mW (35442) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (35442) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (38442) I2C_TEST: Scanning again...[0m
+[0;32mI (38442) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (38472) I2C_TEST: No I2C devices found![0m
+[0;33mW (38482) I2C_TEST: Check your wiring:[0m
+[0;33mW (38482) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (38482) I2C_TEST:   GND -> GND[0m
+[0;33mW (38492) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (38492) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (41492) I2C_TEST: Scanning again...[0m
+[0;32mI (41492) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (41522) I2C_TEST: No I2C devices found![0m
+[0;33mW (41532) I2C_TEST: Check your wiring:[0m
+[0;33mW (41532) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (41532) I2C_TEST:   GND -> GND[0m
+[0;33mW (41542) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (41542) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (44542) I2C_TEST: Scanning again...[0m
+[0;32mI (44542) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (44572) I2C_TEST: No I2C devices found![0m
+[0;33mW (44582) I2C_TEST: Check your wiring:[0m
+[0;33mW (44582) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (44582) I2C_TEST:   GND -> GND[0m
+[0;33mW (44592) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (44592) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (47592) I2C_TEST: Scanning again...[0m
+[0;32mI (47592) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (47622) I2C_TEST: No I2C devices found![0m
+[0;33mW (47632) I2C_TEST: Check your wiring:[0m
+[0;33mW (47632) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (47632) I2C_TEST:   GND -> GND[0m
+[0;33mW (47642) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (47642) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (50642) I2C_TEST: Scanning again...[0m
+[0;32mI (50642) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (50672) I2C_TEST: No I2C devices found![0m
+[0;33mW (50682) I2C_TEST: Check your wiring:[0m
+[0;33mW (50682) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (50682) I2C_TEST:   GND -> GND[0m
+[0;33mW (50692) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (50692) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (53692) I2C_TEST: Scanning again...[0m
+[0;32mI (53692) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[0;32mI (53722) I2C_TEST: Found 1 device(s)[0m
+[0;32mI (56732) I2C_TEST: Scanning again...[0m
+[0;32mI (56732) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (56762) I2C_TEST: No I2C devices found![0m
+[0;33mW (56772) I2C_TEST: Check your wiring:[0m
+[0;33mW (56772) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (56772) I2C_TEST:   GND -> GND[0m
+[0;33mW (56782) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (56782) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (59782) I2C_TEST: Scanning again...[0m
+[0;32mI (59782) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (59812) I2C_TEST: No I2C devices found![0m
+[0;33mW (59822) I2C_TEST: Check your wiring:[0m
+[0;33mW (59822) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (59822) I2C_TEST:   GND -> GND[0m
+[0;33mW (59832) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (59832) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (62832) I2C_TEST: Scanning again...[0m
+[0;32mI (62832) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (62862) I2C_TEST: No I2C devices found![0m
+[0;33mW (62872) I2C_TEST: Check your wiring:[0m
+[0;33mW (62872) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (62872) I2C_TEST:   GND -> GND[0m
+[0;33mW (62882) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (62882) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (65882) I2C_TEST: Scanning again...[0m
+[0;32mI (65882) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[0;32mI (65912) I2C_TEST: Found 1 device(s)[0m
+[0;32mI (68922) I2C_TEST: Scanning again...[0m
+[0;32mI (68922) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (68952) I2C_TEST: No I2C devices found![0m
+[0;33mW (68962) I2C_TEST: Check your wiring:[0m
+[0;33mW (68962) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (68962) I2C_TEST:   GND -> GND[0m
+[0;33mW (68972) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (68972) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (71972) I2C_TEST: Scanning again...[0m
+[0;32mI (71972) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (72002) I2C_TEST: No I2C devices found![0m
+[0;33mW (72012) I2C_TEST: Check your wiring:[0m
+[0;33mW (72012) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (72012) I2C_TEST:   GND -> GND[0m
+[0;33mW (72022) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (72022) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (1872) I2C_TEST: Step 3: Initialize MPU6050 sensor[0m
+[0;32mI (1872) I2C_TEST: Initializing MPU6050 at address 0x68[0m
+[1;31mE (1872) I2C_TEST: Failed to read WHO_AM_I: ESP_FAIL[0m
+[1;31mE (1872) I2C_TEST: ✗ MPU6050 initialization failed![0m
+[0;33mW (1872) I2C_TEST: [0m
+Troubleshooting:
+[0;33mW (1882) I2C_TEST: 1. Check if device was found in I2C scan above[0m
+[0;33mW (1882) I2C_TEST: 2. If found at different address, change MPU6050_ADDR in code[0m
+[0;33mW (1892) I2C_TEST: 3. If not found, check physical wiring[0m
+[0;33mW (1892) I2C_TEST: 4. Try different GPIO pins (edit I2C_SDA_IO and I2C_SCL_IO)[0m
+[0;33mW (1902) I2C_TEST: 5. Measure VCC with multimeter (should be 3.3V)[0m
+[0;32mI (4912) I2C_TEST: Scanning again...[0m
+[0;32mI (4912) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (4942) I2C_TEST: No I2C devices found![0m
+[0;33mW (4952) I2C_TEST: Check your wiring:[0m
+[0;33mW (4952) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (4952) I2C_TEST:   GND -> GND[0m
+[0;33mW (4952) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (4962) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (7962) I2C_TEST: Scanning again...[0m
+[0;32mI (7962) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (7992) I2C_TEST: No I2C devices found![0m
+[0;33mW (8002) I2C_TEST: Check your wiring:[0m
+[0;33mW (8002) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (8002) I2C_TEST:   GND -> GND[0m
+[0;33mW (8002) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (8012) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (11012) I2C_TEST: Scanning again...[0m
+[0;32mI (11012) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[0;32mI (11042) I2C_TEST: Found 1 device(s)[0m
+[0;32mI (14052) I2C_TEST: Scanning again...[0m
+[0;32mI (14052) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (14082) I2C_TEST: No I2C devices found![0m
+[0;33mW (14092) I2C_TEST: Check your wiring:[0m
+[0;33mW (14092) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (14092) I2C_TEST:   GND -> GND[0m
+[0;33mW (14102) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (14102) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (17102) I2C_TEST: Scanning again...[0m
+[0;32mI (17102) I2C_TEST: Starting I2C bus scan...[0m
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:         
+00: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+[1;31mE (17132) I2C_TEST: No I2C devices found![0m
+[0;33mW (17142) I2C_TEST: Check your wiring:[0m
+[0;33mW (17142) I2C_TEST:   VCC -> 3.3V[0m
+[0;33mW (17142) I2C_TEST:   GND -> GND[0m
+[0;33mW (17152) I2C_TEST:   SDA -> GPIO18[0m
+[0;33mW (17152) I2C_TEST:   SCL -> GPIO19[0m
+[0;32mI (1862) I2C_TEST: Step 3: Initialize MPU6050 sensor[0m
+[0;32mI (1862) I2C_TEST: Initializing MPU6050 at address 0x68[0m
+[0;32mI (1862) I2C_TEST: WHO_AM_I: 0x68 (expected: 0x68 or 0x72)[0m
+[0;32mI (1962) I2C_TEST: MPU6050 initialized successfully![0m
+[0;32mI (1962) I2C_TEST: ✓ MPU6050 is connected and responding![0m
+[0;32mI (1962) I2C_TEST: Step 4: Reading accelerometer data...[0m
+[0;32mI (1962) I2C_TEST: Tip: Move the sensor to see values change![0m
+
+[0;32mI (1972) I2C_TEST: Accel: X=-0.07, Y=3.03, Z=10.23 m/s²[0m
+[0;32mI (1972) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (2982) I2C_TEST: Accel: X=-0.31, Y=3.55, Z=9.72 m/s²[0m
+[0;32mI (2982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (3982) I2C_TEST: Accel: X=-0.39, Y=3.47, Z=9.70 m/s²[0m
+[0;32mI (3982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (4982) I2C_TEST: Accel: X=-4.92, Y=8.03, Z=0.01 m/s²[0m
+[0;32mI (5982) I2C_TEST: Accel: X=-4.77, Y=8.49, Z=0.61 m/s²[0m
+[0;32mI (6982) I2C_TEST: Accel: X=2.11, Y=3.59, Z=9.97 m/s²[0m
+[0;32mI (6982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (7982) I2C_TEST: Accel: X=4.03, Y=6.40, Z=6.64 m/s²[0m
+[0;32mI (8982) I2C_TEST: Accel: X=0.46, Y=8.79, Z=5.10 m/s²[0m
+[0;32mI (9982) I2C_TEST: Accel: X=-0.39, Y=0.08, Z=10.39 m/s²[0m
+[0;32mI (9982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (10982) I2C_TEST: Accel: X=-2.99, Y=-4.63, Z=9.08 m/s²[0m
+[0;32mI (10982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (11982) I2C_TEST: Accel: X=5.01, Y=-2.01, Z=9.29 m/s²[0m
+[0;32mI (11982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (12982) I2C_TEST: Accel: X=-4.87, Y=5.38, Z=6.83 m/s²[0m
+[0;32mI (13982) I2C_TEST: Accel: X=-8.21, Y=3.68, Z=4.17 m/s²[0m
+[0;32mI (14982) I2C_TEST: Accel: X=-3.52, Y=-3.04, Z=9.63 m/s²[0m
+[0;32mI (14982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (15982) I2C_TEST: Accel: X=-1.16, Y=-8.67, Z=5.23 m/s²[0m
+[0;32mI (16982) I2C_TEST: Accel: X=-4.63, Y=-6.87, Z=6.96 m/s²[0m
+[0;32mI (17982) I2C_TEST: Accel: X=-9.43, Y=1.90, Z=1.66 m/s²[0m
+[0;32mI (18982) I2C_TEST: Accel: X=4.50, Y=5.84, Z=8.59 m/s²[0m
+[0;32mI (18982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (19982) I2C_TEST: Accel: X=1.03, Y=7.91, Z=3.27 m/s²[0m
+[0;32mI (20982) I2C_TEST: Accel: X=0.65, Y=-0.35, Z=10.19 m/s²[0m
+[0;32mI (20982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (21982) I2C_TEST: Accel: X=8.05, Y=2.95, Z=6.60 m/s²[0m
+[0;32mI (22982) I2C_TEST: Accel: X=4.80, Y=-0.01, Z=14.40 m/s²[0m
+[0;32mI (23982) I2C_TEST: Accel: X=-4.49, Y=-1.56, Z=14.11 m/s²[0m
+[0;32mI (24982) I2C_TEST: Accel: X=-5.94, Y=4.33, Z=9.11 m/s²[0m
+[0;32mI (24982) I2C_TEST: ✓ Z-axis shows gravity! Sensor is working correctly![0m
+[0;32mI (25982) I2C_TEST: Accel: X=-0.58, Y=0.42, 
