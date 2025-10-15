@@ -62,7 +62,7 @@ GPIO 19      →    SCL
 
 |시뮬레이션|실제|
 |----------|----------|
-|[![hw_sim](assets/hw_simulation.png)]|[![hw_real](assets/hw_real.png)]|
+|![hw_sim](assets/hw_simulation.png)|![hw_real](assets/hw_real.png)|
 
 - MPU6050 VCC에는 **3.3V만** 사용하세요 (5V 사용 금지!)
 - 배선 연결이 견고한지 확인하세요
@@ -101,7 +101,7 @@ source install/local_setup.bash
 
 |설치가 성공하면 탭 자동완성이 작동하는 것을 확인할 수 있습니다|
 |---|
-|[![auto_complete](assets/auto_complete.png)]|
+|![auto_complete](assets/auto_complete.png)|
 
 ---
 
@@ -136,7 +136,7 @@ echo "alias get_idf='. \$HOME/esp/esp-idf/export.sh'" >> ~/.bashrc
 
 |설치가 성공하면 ESP-IDF 환경이 활성화되는 것을 확인할 수 있습니다|
 |---|
-|[![get_idf](assets/get_idf.png)]|
+|![get_idf](assets/get_idf.png)|
 
 ---
 
@@ -202,7 +202,7 @@ ros2 run micro_ros_setup flash_firmware.sh
 
 |플래싱이 성공하면 완료 메시지를 확인할 수 있습니다|
 |---|
-|[![flashing](assets/flashing.png)]|
+|![flashing](assets/flashing.png)|
 
 ---
 
@@ -257,7 +257,7 @@ ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
 ESP32의 **RESET 버튼**을 누르면 다음을 확인할 수 있습니다:
 - 연결 성공 메시지
 - IMU 토픽 생성: `/imu/data_raw`
-![result](result.png)
+![result](assets/result.png)
 
 **토픽 확인:**
 ```bash
