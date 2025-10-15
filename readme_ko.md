@@ -28,7 +28,7 @@
 
 |데모 영상|
 |---|
-||
+||[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)||
 
 ---
 
@@ -62,10 +62,8 @@ GPIO 19      →    SCL
 
 |시뮬레이션|실제|
 |----------|----------|
-|||
-|||
+|[![hw_sim](assets/hw_simulation.png)]|[![hw_real](assets/hw_real.png)]|
 
-**⚠️ 중요:**
 - MPU6050 VCC에는 **3.3V만** 사용하세요 (5V 사용 금지!)
 - 배선 연결이 견고한지 확인하세요
 - GPIO 18 (SDA)과 GPIO 19 (SCL)가 이 프로젝트에서 I2C 핀으로 설정되어 있습니다
@@ -103,7 +101,7 @@ source install/local_setup.bash
 
 |설치가 성공하면 탭 자동완성이 작동하는 것을 확인할 수 있습니다|
 |---|
-||
+|[![auto_complete](assets/auto_complete.png)]|
 
 ---
 
@@ -111,9 +109,8 @@ source install/local_setup.bash
 
 ESP-IDF 설정 가이드를 따르세요: https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/linux-macos-setup.html
 
-**⚠️ 중요:** 설치 전에 Python 가상 환경 (venv, conda)을 비활성화하세요.
-
-**참고:** 공식 튜토리얼에서 **Step 4 (get_idf)** 까지만 완료하면 됩니다.
+설치 전에 Python 가상 환경 (venv, conda)을 비활성화하세요.
+공식 튜토리얼에서 **Step 4 (get_idf)** 까지만 완료하면 됩니다.
 
 ```bash
 # Ubuntu 22.04의 경우 의존성 설치
@@ -139,7 +136,7 @@ echo "alias get_idf='. \$HOME/esp/esp-idf/export.sh'" >> ~/.bashrc
 
 |설치가 성공하면 ESP-IDF 환경이 활성화되는 것을 확인할 수 있습니다|
 |---|
-||
+|[![get_idf](assets/get_idf.png)]|
 
 ---
 
@@ -162,7 +159,7 @@ ros2 run micro_ros_setup create_firmware_ws.sh freertos esp32
 
 ```bash
 cd ~/microros_ws/firmware/freertos_apps/apps/
-git clone <THIS_REPOSITORY_URL>
+git clone https://github.com/luckydipper/mpu6050_imu.git
 ```
 
 ---
@@ -205,7 +202,7 @@ ros2 run micro_ros_setup flash_firmware.sh
 
 |플래싱이 성공하면 완료 메시지를 확인할 수 있습니다|
 |---|
-||
+|[![flashing](assets/flashing.png)]|
 
 ---
 
@@ -231,8 +228,7 @@ ESP32의 USB 포트를 찾습니다:
 ```bash
 ls /dev/serial/by-id/*
 
-# 예시 출력:
-# /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+# ex) /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 ```
 
 또는:
@@ -240,6 +236,7 @@ ls /dev/serial/by-id/*
 ls /dev/ttyUSB*
 # 또는
 ls /dev/ttyACM*
+# ex) /dev/ttyUSB0
 ```
 
 ---
@@ -250,10 +247,8 @@ micro-ROS 에이전트를 실행합니다:
 
 ```bash
 ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
-```
 
-**또는 직접 포트 사용:**
-```bash
+# 또는 
 ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
 ```
 
@@ -262,6 +257,7 @@ ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
 ESP32의 **RESET 버튼**을 누르면 다음을 확인할 수 있습니다:
 - 연결 성공 메시지
 - IMU 토픽 생성: `/imu/data_raw`
+![result](result.png)
 
 **토픽 확인:**
 ```bash
@@ -373,8 +369,6 @@ idf.py build flash monitor
 - 불량 납땜
 - 잘못된 GPIO 핀
 - MPU6050 하드웨어 문제
-
-**참고:** 많은 하드웨어 문제가 이 독립 테스트로 발견됩니다.
 
 ---
 
