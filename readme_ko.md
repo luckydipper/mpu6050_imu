@@ -358,7 +358,8 @@ screen /dev/ttyUSB0 115200
 독립형 ESP-IDF 테스트로 하드웨어를 검증합니다:
 
 ```bash
-cd ~/Desktop/DEV/esp32_i2c_test
+get_idf
+cd ~/microros_ws/firmware/freertos_apps/apps/mpu6050_imu/esp32_i2c_test
 source ~/microros_ws/firmware/toolchain/esp-idf/export.sh
 idf.py build flash monitor
 # 종료: Ctrl+]

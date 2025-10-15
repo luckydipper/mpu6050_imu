@@ -372,7 +372,8 @@ This displays:
 Use standalone ESP-IDF test to verify hardware:
 
 ```bash
-cd ~/Desktop/DEV/esp32_i2c_test
+get_idf
+cd ~/microros_ws/firmware/freertos_apps/apps/mpu6050_imu/esp32_i2c_test
 source ~/microros_ws/firmware/toolchain/esp-idf/export.sh
 idf.py build flash monitor
 # Exit: Ctrl+]
