@@ -34,7 +34,7 @@
 
 ## 1. Overview
 
-This tutorial demonstrates serial communication between ESP32 and ROS2 using the micro-ROS framework with MPU6050 IMU sensor integration.
+This tutorial demonstrates how to obtain IMU messages in ROS2 using the micro-ROS framework. It connects an MPU6050 IMU sensor to an ESP32 via I2C serial communication and retrieves sensor data using an RTOS-based approach.
 
 **Key Features:**
 - Real-time IMU data streaming to ROS2
@@ -46,14 +46,16 @@ This tutorial demonstrates serial communication between ESP32 and ROS2 using the
 
 ## 2. Hardware Requirements
 
+**BOM:** https://docs.google.com/spreadsheets/d/1wX9Iwj8zxzniESLLwfLKfVcVwFZRYK2gtmtsNySbq_Y/edit?usp=sharing
+
 |Component|Description|
 |---------|-----------|
 |ESP32 Development Board|Any ESP32 board (ESP32-WROOM or similar)|
 |MPU6050 IMU Sensor|6-axis accelerometer and gyroscope|
 |USB Cable|USB-C or Micro USB (must support data transfer)|
-|Jumper Wires|4 wires minimum (or 5-pin connector)|
-
-**Note:** A 5-pin connector cable works well for this setup.
+|Jumper Wires|4 wires minimum |
+|Breadboard|For prototyping connections|
+5-pin connector, micro usb connector (for esp32 connection)
 
 ---
 
@@ -72,10 +74,8 @@ GPIO 19      →    SCL
 
 |Simulation|Real World|
 |----------|----------|
-||
-||
+|![hw_sim](assets/hw_simulation.png)|![hw_real](assets/hw_real.png)|
 
-**⚠️ Important:**
 - Use **3.3V only** for MPU6050 VCC (NOT 5V!)
 - Ensure solid wire connections
 - GPIO 18 (SDA) and GPIO 19 (SCL) are configured as I2C pins for this project
@@ -113,7 +113,7 @@ source install/local_setup.bash
 
 |If installation is successful, you should see tab autocomplete working|
 |---|
-||
+|![auto_complete](assets/auto_complete.png)|
 
 ---
 
@@ -121,9 +121,8 @@ source install/local_setup.bash
 
 Follow the ESP-IDF setup guide: https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/linux-macos-setup.html
 
-**⚠️ Important:** Deactivate any Python virtual environments (venv, conda) before installation.
-
-**Note:** Complete up to **Step 4 (get_idf)** from the official tutorial.
+Deactivate any Python virtual environments (venv, conda) before installation.
+Complete up to **Step 4 (get_idf)** from the official tutorial.
 
 ```bash
 # For Ubuntu 22.04, install dependencies
@@ -149,7 +148,7 @@ After installation, use the `get_idf` command to activate the ESP-IDF environmen
 
 |If installation is successful, you should see the ESP-IDF environment activated|
 |---|
-||
+|![get_idf](assets/get_idf.png)|
 
 ---
 
@@ -172,7 +171,7 @@ Clone this repository into the firmware apps directory:
 
 ```bash
 cd ~/microros_ws/firmware/freertos_apps/apps/
-git clone <THIS_REPOSITORY_URL>
+git clone https://github.com/luckydipper/mpu6050_imu.git
 ```
 
 ---
@@ -194,17 +193,17 @@ ros2 run micro_ros_setup build_firmware.sh
 ros2 run micro_ros_setup flash_firmware.sh
 ```
 
-**⚠️ Critical Flashing Tips:**
+**Critical Flashing Tips:**
 
 1. **Cable Quality Matters:**
    - Use a **data-capable USB cable** (not charging-only cables)
-   - USB-C to USB-C or USB-C with adapter works well
+   - USB-C to USB-C cable with 5-pin converter works well
    - Older USB to micro-USB cables often fail for data transfer
 
 2. **Hold BOOT Button:**
    - Press and hold the **BOOT button** on ESP32 during flashing
    - Keep holding until you see "Writing at 0x..." messages
-   - Some boards require holding BOOT + pressing RESET simultaneously
+   - If holding doesn't work, try pressing it repeatedly
 
 3. **Common Issues:**
    - If flashing fails, see the [Troubleshooting](#7-troubleshooting) section
@@ -215,7 +214,7 @@ ros2 run micro_ros_setup flash_firmware.sh
 
 |If flashing is successful, you should see completion messages|
 |---|
-||
+|![flashing](assets/flashing.png)|
 
 ---
 
@@ -250,6 +249,7 @@ Alternatively:
 ls /dev/ttyUSB*
 # or
 ls /dev/ttyACM*
+# Example: /dev/ttyUSB0
 ```
 
 ---
@@ -260,10 +260,8 @@ Run the micro-ROS agent:
 
 ```bash
 ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
-```
 
-**Or use direct port:**
-```bash
+# Or use direct port:
 ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
 ```
 
@@ -272,6 +270,8 @@ ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
 Press the **RESET button** on ESP32. You should see:
 - Connection established messages
 - IMU topic appearing: `/imu/data_raw`
+
+![result](assets/result.png)
 
 **Check topics:**
 ```bash
@@ -290,7 +290,7 @@ ros2 topic echo /imu/data_raw
 
 #### Issue 1: Cannot Find Device
 
-**Check USB connection:**
+Check USB connection:
 ```bash
 lsusb
 # Disconnect and reconnect USB cable
@@ -304,7 +304,7 @@ If the device appears in `lsusb`, your cable supports data transfer.
 
 #### Issue 2: Device Found But Cannot Connect
 
-**For ESP32-WROOM models, disable brltty service:**
+For ESP32-WROOM models, disable brltty service:
 
 The `brltty` service can interfere with CH340/CH341 USB-to-serial drivers.
 
@@ -316,16 +316,15 @@ dpkg -l | grep brltty
 sudo apt remove brltty
 ```
 
-**Reference:** https://www.reddit.com/r/pop_os/comments/uf54bi/how_to_remove_or_disable_brltty/
+Reference: https://www.reddit.com/r/pop_os/comments/uf54bi/how_to_remove_or_disable_brltty/
 
 ---
 
 #### Issue 3: Hardware Connection Problems
 
-1. **Verify soldering quality** (if using custom boards)
-2. **Try reversing the USB-C cable** (some cables are directional)
-3. **Check BOOT and RESET button functionality**
-4. **Try a different USB port** on your computer
+1. Verify soldering quality (if using custom boards)
+2. Try reversing the USB-C cable (some cables are directional)
+3. Try a different USB port on your computer
 
 ---
 
@@ -385,7 +384,7 @@ This pure I2C test helps identify:
 - Wrong GPIO pins
 - MPU6050 hardware problems
 
-**Note:** Many hardware issues are discovered using this isolated test.
+Many hardware issues are discovered using this isolated test.
 
 ---
 
