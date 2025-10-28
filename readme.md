@@ -28,7 +28,7 @@
 ---
 
 |Demo Video|Wire Connection|Wifi Connection|
-|—|—|—|
+|---|---|---|
 |[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)|![wired](assets/wired_connection.png)|![lan](assets/lan_connection.png)|
 
 ---
@@ -426,7 +426,5 @@ Many hardware issues are discovered using this isolated test.
 ---
 
 ## 9. wifi connection
-
-For issues and questions, please open an issue on GitHub.
-Ref. https://medium.com/@SameerT009/connect-esp32-to-ros2-foxy-5f06e0cc64df
+Ref. https://medium.com/@SameerT009/connect-esp32-to-ros2-foxy-5f06e0cc64df  
 you can follow after step4. Configuring created firmware in that link. Your host machin must have WIFI NIC to share IP.
