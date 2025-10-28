@@ -28,8 +28,9 @@
 ---
 
 |Demo Video|Wire Connection|Wifi Connection|
-|—|—|—|
+|---|---|---|
 |[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)|![wired](assets/wired_connection.png)|![lan](assets/lan_connection.png)|
+
 ---
 
 ## 1. 개요
