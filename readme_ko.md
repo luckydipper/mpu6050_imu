@@ -23,13 +23,13 @@
    - 7.1. [플래싱 오류](#71-플래싱-오류)
    - 7.2. [IMU 데이터 읽기 문제](#72-imu-데이터-읽기-문제)
 8. [참고 자료](#8-참고-자료)
+9. [Wifi](#9-wifi-connection)
 
 ---
 
-|데모 영상|
-|---|
-|[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)||
-
+|Demo Video|Wire Connection|Wifi Connection|
+|—|—|—|
+|[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)|![wired](assets/wired_connection.png)|![lan](assets/lan_connection.png)|
 ---
 
 ## 1. 개요
@@ -402,6 +402,6 @@ idf.py build flash monitor
 
 ---
 
-## 지원
-
-문제 및 질문이 있으시면 GitHub에서 이슈를 열어주세요.
+## 9. wifi로 연결하고 싶을 때 
+참조:https://medium.com/@SameerT009/connect-esp32-to-ros2-foxy-5f06e0cc64df
+step4부터 esp32에 데스크탑의 ifconfig wifi ip를 부여하는 것으로 가능함. (전 컴퓨터에 wifi NIC이 있습니다. 없으면 노트북으로 하면 될 듯 합니다.) 
