@@ -26,9 +26,9 @@
 
 ---
 
-|Demo Video|
-|---|
-|[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)|
+|Wired Demo Video|Wifi LAN Demo Video|
+|---|---|
+|[![Demo videos](https://img.youtube.com/vi/8mY6yMOH74g/maxresdefault.jpg)](https://youtube.com/shorts/8mY6yMOH74g?feature=share)|TBD|
 
 ---
 
@@ -286,6 +286,12 @@ ros2 topic echo /imu/data_raw
 
 ## 7. Troubleshooting
 
+### 7.0 Build error
+![build_error](assets/build_error.png)
+by,  
+https://github.com/micro-ROS/micro_ros_setup/issues/580  
+you should remove `Make[1]~~~` from flags.make files
+
 ### 7.1. Flashing Errors
 
 #### Issue 1: Cannot Find Device
@@ -356,7 +362,7 @@ View ESP32 debug output directly:
 
 ```bash
 screen /dev/ttyUSB0 115200
-# Exit: Ctrl+A then K then Y
+# Exit: Ctrl+A + D
 ```
 
 This displays:
