@@ -1,4 +1,6 @@
 # micro-ROS ESP32 MPU6050 IMU 통합
+TODO: explain build error https://github.com/micro-ROS/micro_ros_setup/issues/580
+you need to delete some cmake log.
 
 **언어:** [English](./readme.md) | [한국어]
 
@@ -326,12 +328,8 @@ rm -rf ~/microros_ws/firmware/freertos_apps/microros_esp32_extensions/install
 
 # ESP32 플래시 메모리 지우기
 esptool.py erase_flash
-
-# 다시 빌드 및 플래싱
-cd ~/microros_ws
-ros2 run micro_ros_setup build_firmware.sh
-ros2 run micro_ros_setup flash_firmware.sh
 ```
+
 
 ---
 
@@ -371,17 +369,6 @@ idf.py build flash monitor
 - 불량 납땜
 - 잘못된 GPIO 핀
 - MPU6050 하드웨어 문제
-
----
-
-#### 일반적인 IMU 문제
-
-| 문제 | 해결책 |
-|---------|----------|
-| I2C 장치를 찾을 수 없음 | 3.3V 전원 및 배선 확인 |
-| 잘못된 WHO_AM_I 값 | I2C 주소 확인 (0x68 또는 0x69) |
-| 불규칙한 센서 값 | 느슨한 연결 확인 |
-| 모두 0 | MPU6050이 절전 모드이거나 전원 없음 |
 
 ---
 
